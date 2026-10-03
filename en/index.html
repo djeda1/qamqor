@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Qamqor · Everyday care</title>
+<meta name="description" content="Qamqor helps older adults and their families: medication and task reminders, a mood tracker, safe zones and a direct line to family." />
+<meta name="theme-color" content="#4D50A2" />
+<link rel="alternate" hreflang="ru" href="../" />
+<link rel="alternate" hreflang="en" href="./" />
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<!-- Add to Home Screen (iPhone) -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Qamqor" />
+<link rel="apple-touch-icon" href="../icons/icon-180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Literata:ital,opsz,wght@1,7..72,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+<link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+<div class="stage">
+  <!-- The left column is only visible on wide screens -->
+  <aside class="intro" aria-label="About the app">
+    <div class="intro__brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo" /></svg>
+      <span>Qamqor</span>
+    </div>
+    <h1 class="intro__title">Care, <em>wherever you&nbsp;are.</em></h1>
+    <p class="intro__lead">Medication and task reminders, a mood tracker and safe zones. For people who value their independence, and for the families who care about them.</p>
+    <ul class="intro__chips">
+      <li><i class="ph ph-check" aria-hidden="true"></i>Still active</li>
+      <li><i class="ph ph-check" aria-hidden="true"></i>Feeling calm</li>
+    </ul>
+    <nav class="intro__lang" aria-label="Language"><a href="../" hreflang="ru" lang="ru">Русский</a><a href="./" aria-current="true">English</a></nav>
+  </aside>
+
+  <div class="device" id="device">
+    <div class="statusbar" aria-hidden="true">
+      <span class="statusbar__time" id="sb-time">9:41</span>
+      <span class="statusbar__island"></span>
+      <span class="statusbar__icons"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span>
+    </div>
+
+    <div class="app" id="app">
+      <header class="topbar">
+        <button class="icon-btn" id="menu-btn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><i class="ph ph-list" aria-hidden="true"></i></button>
+        <p class="topbar__title" id="topbar-title">Today</p>
+        <button class="pill-btn" id="range-btn" hidden>Week</button>
+        <span class="topbar__date" id="topbar-date"></span>
+      </header>
+
+      <main class="screens" id="screens">
+        <section class="screen" data-screen="home" aria-label="Today"></section>
+        <section class="screen" data-screen="tracker" aria-label="Wellbeing tracker" hidden></section>
+        <section class="screen" data-screen="plan" aria-label="Plan" hidden></section>
+        <section class="screen" data-screen="care" aria-label="Safety" hidden></section>
+      </main>
+
+      <nav class="tabbar" aria-label="Sections">
+        <button class="tab is-active" data-tab="home" aria-label="Today"><i class="ph ph-house" aria-hidden="true"></i></button>
+        <button class="tab" data-tab="tracker" aria-label="Tracker"><i class="ph ph-chart-line-up" aria-hidden="true"></i></button>
+        <button class="tab tab--add" id="add-btn" aria-label="Add"><i class="ph ph-plus" aria-hidden="true"></i></button>
+        <button class="tab" data-tab="plan" aria-label="Plan"><i class="ph ph-note" aria-hidden="true"></i></button>
+        <button class="tab" data-tab="care" aria-label="Safety and contacts"><i class="ph ph-headset" aria-hidden="true"></i></button>
+      </nav>
+
+      <!-- "Add" bottom sheet -->
+      <div class="scrim" id="scrim" hidden></div>
+      <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+        <div class="sheet__grip" aria-hidden="true"></div>
+        <div class="sheet__head">
+          <h2 id="sheet-title">Add</h2>
+          <button class="icon-btn icon-btn--soft" data-close aria-label="Close"><i class="ph ph-x" aria-hidden="true"></i></button>
+        </div>
+        <div class="sheet__body" id="sheet-body"></div>
+      </div>
+
+      <!-- Side menu -->
+      <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu" hidden></div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <footer class="credit">© djedai</footer>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="16" fill="#4D50A2"/>
+    <path d="M13 27c-4 0-4-6 1-6 6 0 9 6 11 11 3-9 9-15 16-15 9 0 13 10 7 19-4 7-12 12-17 14" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="46" cy="49" r="3.4" fill="#F9DF77"/>
+  </symbol>
+</svg>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

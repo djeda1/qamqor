@@ -1,10 +1,12 @@
 /* Qamqor · service worker
    Кэширует приложение, чтобы оно открывалось без интернета.
    При изменении файлов увеличьте VERSION. */
-const VERSION = "qamqor-v2";
+const VERSION = "qamqor-v3";
 const CORE = [
   "./",
   "index.html",
+  "en/",
+  "en/index.html",
   "css/styles.css",
   "js/app.js",
   "favicon.svg",
